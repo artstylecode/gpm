@@ -1,4 +1,4 @@
-package resolve
+package config
 import
 (
 	"encoding/json"
@@ -15,21 +15,25 @@ func LoadConfig(path string)(*GpmConfig, error){
 	if path==""{
 		path=DefaultName
 	}
+	//fmt.Println(path)
 	//加载配置文件
 	file, err := os.Open(path)
 	if err != nil {
 		return nil, err
 	}
+	defer file.Close()
 	var config GpmConfig
 	//解析配置
 	err = json.NewDecoder(file).Decode(&config)
 	if err != nil{
 		return nil, err
 	}
-
+	//var reso DefaultResolver
+	//config.parentConfig = resolveParentPacakges(reso, config)
 	return &config, nil
 }
+
 //resolvePacakges 加载依赖
-func resolvePacakges(config *GpmConfig)*GpmConfig{
+func resolveParentPacakges(resolver Resolver, config *GpmPackage)*GpmConfig{
 	return nil
 }
