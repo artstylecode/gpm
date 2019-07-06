@@ -15,7 +15,9 @@ func Install(config *config.GpmConfig){
 
 func installPackage(name string , version string){
 	env := os.Environ()
-	println(env)
+	goroot := os.Getenv("GOROOT")
+	goExcuteFile := goroot + "/bin/go"
+	
 	procAttr := &os.ProcAttr{
 		Env:env,
 		Files:[] *os.File{
@@ -24,9 +26,12 @@ func installPackage(name string , version string){
 			os.Stderr,
 		},
 	}
-	_,err := os.StartProcess("/bin/ls", []string{"ls","-l"}, procAttr)
+	println("开始安装包:"+ name+".....")
+	pid,err := os.StartProcess(goExcuteFile, []string{"go","get", "-u", name}, procAttr)
 	if err != nil {
 		return
 	}
+	pid.Wait()
 
+	println(name+"安装成功..")
 }

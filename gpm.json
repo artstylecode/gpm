@@ -1,0 +1,9 @@
+{
+    "version":"1.0",
+    "packages":[
+        {
+            "name":"github.com/jinzhu/gorm",
+            "version":"1.0"
+        }
+    ]
+}
