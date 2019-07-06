@@ -4,6 +4,24 @@
         {
             "name":"github.com/jinzhu/gorm",
             "version":"1.0"
+        },
+        {
+            "name":"github.com/astaxie/beego",
+            "version":"1.0"
+        },
+        {
+            "name":"github.com/beego/bee",
+            "version":"1.0"
+        }
+        ,
+        {
+            "name":"github.com/andlabs/libui",
+            "version":"1.0"
+        }
+        ,
+        {
+            "name":"github.com/andlabs/ui",
+            "version":"1.0"
         }
     ]
 }
