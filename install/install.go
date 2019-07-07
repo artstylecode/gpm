@@ -3,14 +3,11 @@ package install
 import (
 	"gpm/config"
 	"os"
-	"sync"
 )
 
 //Install 安装包
 func Install(config *config.GpmConfig) {
 	packages := config.Packages
-	var waitGroup sync.WaitGroup
-	waitGroup.Add(len(packages))
 	for _, item := range packages {
 		installPackage(item.Name, item.Version)
 	}
